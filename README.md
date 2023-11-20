@@ -290,27 +290,6 @@ For unique but generic variations of assets, `Variant` is a two digit number sta
 Depending on how your asset variants are made, you can chain together variant names. For example, if you are creating flooring assets for an Arch Viz project you should use the base name `Flooring` with chained variants such as `Flooring_Marble_01`, `Flooring_Maple_01`, `Flooring_Tile_Squares_01`.
 
 <a name="1.1-examples"></a>
-#### 1.1 Examples
-
-##### 1.1e1 Bob
-
-| Asset Type              | Asset Name                                                 |
-| ----------------------- | ---------------------------------------------------------- |
-| Skeletal Mesh           | SK_Bob                                                     |
-| Material                | M_Bob                                                      |
-| Texture (Diffuse/Albedo)| T_Bob_D                                                    |
-| Texture (Normal)        | T_Bob_N                                                    |
-| Texture (Evil Diffuse)  | T_Bob_Evil_D                                               |
-
-##### 1.1e2 Rocks
-
-| Asset Type              | Asset Name                                                 |
-| ----------------------- | ---------------------------------------------------------- |
-| Static Mesh (01)        | S_Rock_01                                                  |
-| Static Mesh (02)        | S_Rock_02                                                  |
-| Static Mesh (03)        | S_Rock_03                                                  |
-| Material                | M_Rock                                                     |
-| Material Instance (Snow)| MI_Rock_Snow                                               |
 
 <a name="asset-name-modifiers"></a>
 <a name="1.2"></a>
@@ -324,12 +303,6 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
-| Level / Map             |            |            | [Should be in a folder called Maps.](#2.4) |
-| Level (Persistent)      |            | _P         |                                  |
-| Level (Audio)           |            | _Audio     |                                  |
-| Level (Lighting)        |            | _Lighting  |                                  |
-| Level (Geometry)        |            | _Geo       |                                  |
-| Level (Gameplay)        |            | _Gameplay  |                                  |
 | Blueprint               | BP_        |            |                                  |
 | Prefab                  | PF_        |            | Blueprint based on DO base-actor |
 | Master Material         | MM_        |            |                                  |
@@ -340,11 +313,11 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Texture                 | T_         | _?         | See [Textures](#anc-textures)    |
 | Tiled Texture           | TT_        | _?         | See [Textures](#anc-textures)    |
 | Particle System         | PS_        |            |                                  |
+| VFX                     | VFX_       |            | "Prefab" VFX                     |
+| SFX                     | SFX_       |            | "Prefab" SFX                     |
 | Widget Blueprint        | WBP_       |            |                                  |
 | Tool                    | Tool_      |            |                                  |
 | Widget Tool             | WidgetTool_|            |                                  |
-| VFX                     | VFX_       |            | "Prefab" VFX                     |
-| SFX                     | SFX_       |            | "Prefab" SFX                     |
 
 <a name="anc-animations"></a>
 <a name="1.2.2"></a>
@@ -389,14 +362,14 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Blueprint               | BP_        |            |                                  |
-| Blueprint Component     | BP_        | Component  | I.e. BP_InventoryComponent       |
+| Blueprint Component     | BP_        | Comp       | I.e. BP_InventoryComponent       |
 | Blueprint Function Library | BPFL_   |            |                                  |
 | Blueprint Interface     | BPI_       |            |                                  |
 | Blueprint Macro Library | BPML_      |            | Do not use macro libraries if possible. |
 | Enumeration             | Enum_      |            | No underscore.                   |
 | Structure               | Struct_    |            | No underscore.                   |
 | Tutorial Blueprint      | TBP_       |            |                                  |
-| Widget Blueprint        | WBP_       |            |                                  |
+| Widget Blueprint        | WBP_       |            | Building block for UI            |
 | User Interface          | UI_        |            | Prefab of UI                     |
 
 <a name="anc-materials"></a>
@@ -405,11 +378,11 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Master Material               | MM_        |            |                                  |
 | Material                      | M_/MI_     |            |                                  |
 | Intelligent Material          | IM_/IMI_   |            |                                  |
 | Material (Post Process)       | PP_        |            |                                  |
 | Material Function             | MF_        |            |                                  |
-| Material Instance             | MI_        |            |                                  |
 | Material Parameter Collection | MPC_       |            |                                  |
 | Subsurface Profile            | SP_        |            |                                  |
 | Physical Materials            | PM_        |            |                                  |
@@ -421,18 +394,17 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
-| Texture                 | T_         |            |                                  |
+| Texture                 | T_/TT_     |            |                                  |
 | Texture (Diffuse/Albedo/Base Color)| T_ | _D      |                                  |
-| Texture (Normal)        | T_         | _N         |                                  |
-| Texture (Roughness)     | T_         | _R         |                                  |
-| Texture (Alpha/Opacity) | T_         | _A         |                                  |
-| Texture (Ambient Occlusion) | T_     | _O         |                                  |
-| Texture (Bump)          | T_         | _B         |                                  |
-| Texture (Emissive)      | T_         | _E         |                                  |
-| Texture (Mask)          | T_         | _M         |                                  |
-| Texture (Specular)      | T_         | _S         |                                  |
-| Texture (Metallic)      | T_         | _M         |                                  |
-| Texture (Packed)        | T_         | _*         | See notes below about [packing](#anc-textures-packing). |
+| Texture (Normal)        | T_/TT_     | _N         |                                  |
+| Texture (Roughness)     | T_/TT_     | _R         |                                  |
+| Texture (Alpha/Opacity) | T_/TT_     | _A         |                                  |
+| Texture (Ambient Occlusion) |  T_/TT_| _O         |                                  |
+| Texture (Bump)          | T_/TT_     | _B         |                                  |
+| Texture (Emissive)      | T_/TT_     | _E         |                                  |
+| Texture (Mask)          | T_/TT_     | _M         |                                  |
+| Texture (Metallic)      | T_/TT_     | _M         |                                  |
+| Texture (Packed)        | T_/TT_     | _*         | See notes below about [packing](#anc-textures-packing). |
 | Texture Cube            | TC_        |            |                                  |
 | Media Texture           | MT_        |            |                                  |
 | Render Target           | RT_        |            |                                  |
