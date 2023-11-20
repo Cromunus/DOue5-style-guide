@@ -371,7 +371,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Tutorial Blueprint      | TBP_       |            |                                  |
 | Widget Blueprint        | WBP_       |            | Building block for UI            |
 | User Interface          | UI_        |            | Prefab of UI                     |
-| Utility Library         | UL_        | (_Context) | Library of Utility actions       |
+| Scripted Actions        | SA_        | _Context*  | *i.e _Actor / _Asset / _DOActor  |
 | Utility Actor           | UA_        | (_Context) | Actor to run code for utility actions   |
 | Utility Widget          | UW_        | (_Context) | WidgetTool that cant live by itself     |
 
