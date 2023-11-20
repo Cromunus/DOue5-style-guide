@@ -1,6 +1,6 @@
 # [Gamemakin](https://gamemak.in) UE4 Style Guide() {
 
-*A mostly reasonable approach to Unreal Engine 4*
+*A mostly reasonable approach to Unreal Engine 5*
 
 Heavily inspired by the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript).
 
@@ -23,17 +23,6 @@ Gamemakin LLC has a public Discord channel at http://discord.gamemak.in with a #
 
 Every section of this style guide is numbered for both easy reference and easy linking. You can link to any section directly by simply append a hash tag and the section number to the end of http://ue4.style
 For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in http://ue4.style#0.1.
-
-## Forks And Translations
-
-If you have made a notable fork or translation that is not suitable for a pull request into this repo, please submit a pull request to add the fork or translation here.
-
-* [Korean Translation](https://github.com/ymkim50/ue4-style-guide/blob/master/README_Kor.md) by ymkim50
-* [Russian Translation](https://github.com/CosmoMyzrailGorynych/ue4-style-guide-rus/blob/master/README.md) by CosmoMyzrailGorynych
-* [Japanese Translation](https://github.com/akenatsu/ue4-style-guide/blob/master/README.jp.md) by akenatsu
-* [Chinese Translation](https://github.com/skylens-inc/ue4-style-guide/blob/master/README.md) by Beijing Skylens Tech.
-* [Brazilian Portuguese Translation](https://github.com/danlvr/ue5-style-guide/blob/main/README_PTBR.md) by danlvr.
-* [French Translation](https://github.com/Arnaud58/ue5-style-guide/blob/main/README.md) by Arnaud58
 
 ## Table of contents
 - [Important Terminology](#important-terminology)
@@ -342,12 +331,20 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Level (Geometry)        |            | _Geo       |                                  |
 | Level (Gameplay)        |            | _Gameplay  |                                  |
 | Blueprint               | BP_        |            |                                  |
-| Material                | M_         |            |                                  |
-| Static Mesh             | S_         |            | Many use SM_. We use S_.         |
-| Skeletal Mesh           | SK_        |            |                                  |
+| Prefab                  | PF_        |            | Blueprint based on DO base-actor |
+| Master Material         | MM_        |            |                                  |
+| Material                | M_/MI_     |            |                                  |
+| Intelligent Material    | IM_/IMI_   |            |                                  |
+| Static Mesh             | SM_        |            |                                  |
+| Skeletal Mesh           | SKM_       |            |                                  |
 | Texture                 | T_         | _?         | See [Textures](#anc-textures)    |
+| Tiled Texture           | TT_        | _?         | See [Textures](#anc-textures)    |
 | Particle System         | PS_        |            |                                  |
 | Widget Blueprint        | WBP_       |            |                                  |
+| Tool                    | Tool_      |            |                                  |
+| Widget Tool             | WidgetTool_|            |                                  |
+| VFX                     | VFX_       |            | "Prefab" VFX                     |
+| SFX                     | SFX_       |            | "Prefab" SFX                     |
 
 <a name="anc-animations"></a>
 <a name="1.2.2"></a>
@@ -396,10 +393,11 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Blueprint Function Library | BPFL_   |            |                                  |
 | Blueprint Interface     | BPI_       |            |                                  |
 | Blueprint Macro Library | BPML_      |            | Do not use macro libraries if possible. |
-| Enumeration             | E          |            | No underscore.                   |
-| Structure               | F or S     |            | No underscore.                   |
+| Enumeration             | Enum_      |            | No underscore.                   |
+| Structure               | Struct_    |            | No underscore.                   |
 | Tutorial Blueprint      | TBP_       |            |                                  |
 | Widget Blueprint        | WBP_       |            |                                  |
+| User Interface          | UI_        |            | Prefab of UI                     |
 
 <a name="anc-materials"></a>
 <a name="1.2.5"></a>
@@ -407,7 +405,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
-| Material                      | M_         |            |                                  |
+| Material                      | M_/MI_     |            |                                  |
+| Intelligent Material          | IM_/IMI_   |            |                                  |
 | Material (Post Process)       | PP_        |            |                                  |
 | Material Function             | MF_        |            |                                  |
 | Material Instance             | MI_        |            |                                  |
