@@ -384,6 +384,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Master Material               | MM_        |            |                                  |
 | Material                      | M_/MI_     |            |                                  |
 | Intelligent Material          | IM_/IMI_   |            |                                  |
+| Material (User Interface)     | UIM_/UIMI_ |            |                                  |
 | Material (Post Process)       | PP_        |            |                                  |
 | Material Function             | MF_        |            |                                  |
 | Material Parameter Collection | MPC_       |            |                                  |
