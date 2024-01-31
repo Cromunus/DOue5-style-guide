@@ -345,18 +345,18 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
-| Blueprint               | BP_        |            |                                  |
-| Blueprint Component     | BP_        | _Comp       | I.e. BP_Inventory_Comp          |
+| Blueprint               | BP_        |            | Note: "Models" use "PF_"         |
+| Blueprint Component     | BPC_       |            | BPC_Inventory                    |
 | Blueprint Function Library | BPFL_   |            |                                  |
 | Blueprint Interface     | BPI_       |            |                                  |
 | Blueprint Macro Library | BPML_      |            | Do not use macro libraries if possible. |
-| Enumeration             | Enum_      |            | No underscore.                   |
-| Structure               | Struct_    |            | No underscore.                   |
+| Enumeration             | Enum_      |            |                                  |
+| Structure               | Struct_    |            |                                  |
 | Tutorial Blueprint      | TBP_       |            |                                  |
-| Widget Blueprint        | WBP_       |            | Building block for UI            |
+| Widget Blueprint        | WBP_       |            | Building block for UI (Note: A Building block can utilize another building block)   |
 | User Interface          | UI_        |            | Prefab of UI                     |
 | Scripted Actions        | SA_        | _Context*  | *i.e _Actor / _Asset / _DOActor  |
-| Utility Actor           | UA_        | (_Context) | Actor to run code for utility actions   |
+| Utility Actor           | UA_        | (_Context) | Actor to run code for utility actions (Spawned to do some action, then despawned)   |
 | Utility Widget          | UW_        | (_Context) | WidgetTool that cant live by itself     |
 
 <a name="anc-materials"></a>
