@@ -383,7 +383,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Texture                 | T_/TT_     |            |                                  |
-| Texture (Diffuse/Albedo/Base Color)| T_ | _D      |                                  |
+| Texture (Diffuse/Albedo/Base Color)| T_/TT_ | _D      |                                  |
 | Texture (Normal)        | T_/TT_     | _N         |                                  |
 | Texture (Roughness)     | T_/TT_     | _R         |                                  |
 | Texture (Alpha/Opacity) | T_/TT_     | _A         |                                  |
@@ -524,7 +524,7 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
         |       |-- IMM_Glass
         |   |-- MI_Basket01
         |   |-- IMI_Glass_Green
-        |   |-- TT_Flooring_Oak01_C
+        |   |-- TT_Flooring_Oak01_D
         |   |-- TT_Flooring_Oak01_N
         |   |-- MF_TriPlanarAdvanced
         |   |-- MPC_Environment
