@@ -31,7 +31,7 @@ Any `Identifier` should strive to only have the following characters when possib
 * ABCDEFGHIJKLMNOPQRSTUVWXYZ
 * abcdefghijklmnopqrstuvwxyz
 * 1234567890
-* _ (sparingly)
+* _
 
 The reasoning for this is this will ensure the greatest compatibility of all data across all platforms across all tools, and help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
 
