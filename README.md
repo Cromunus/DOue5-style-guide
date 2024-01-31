@@ -13,7 +13,7 @@ For example, if you want to send someone to the first principle of this style gu
 @TODO: Make this section 1 and update this document accordingly. Or maybe we don't?
 
 <a name="00.1"></a>
-### 00.1 Forbidden Characters
+### Forbidden Characters
 
 <a name="identifiers-1"></a>
 #### Identifiers
@@ -246,32 +246,6 @@ Gamemakin LLC is not a lawyer, but please don't introduce illegal actions and be
 * Don't steal content
 * Follow licensing restrictions on content, e.g. attribute when attributions are needed
 
-<a name="00"></a>
-## 00. Globally Enforced Opinions
-
-@TODO: Make this section 1 and update this document accordingly. Or maybe we don't?
-
-<a name="00.1"></a>
-### 00.1 Forbidden Characters
-
-<a name="identifiers-1"></a>
-#### Identifiers
-
-In any `Identifier` of any kind, **never** use the following unless absolutely forced to:
-
-* White space of any kind
-* Backward slashes `\`
-* Symbols i.e. `#!@$%`
-* Any Unicode character
-
-Any `Identifier` should strive to only have the following characters when possible (the RegEx `[A-Za-z0-9_]+`)
-
-* ABCDEFGHIJKLMNOPQRSTUVWXYZ
-* abcdefghijklmnopqrstuvwxyz
-* 1234567890
-* _ (sparingly)
-
-The reasoning for this is this will ensure the greatest compatibility of all data across all platforms across all tools, and help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
 
 <a name="anc"></a>
 <a name="1"></a>
