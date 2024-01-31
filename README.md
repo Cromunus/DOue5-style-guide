@@ -7,6 +7,33 @@ More technical documentation regarding Linter and the Style Guide can be found a
 Every section of this style guide is numbered for both easy reference and easy linking. You can link to any section directly by simply append a hash tag and the section number to the end of http://ue4.style
 For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in http://ue4.style#0.1.
 
+
+## Globally Enforced Opinions
+
+@TODO: Make this section 1 and update this document accordingly. Or maybe we don't?
+
+<a name="00.1"></a>
+### 00.1 Forbidden Characters
+
+<a name="identifiers-1"></a>
+#### Identifiers
+
+In any `Identifier` of any kind, **never** use the following unless absolutely forced to:
+
+* White space of any kind
+* Backward slashes `\`
+* Symbols i.e. `#!@$%`
+* Any Unicode character
+
+Any `Identifier` should strive to only have the following characters when possible (the RegEx `[A-Za-z0-9_]+`)
+
+* ABCDEFGHIJKLMNOPQRSTUVWXYZ
+* abcdefghijklmnopqrstuvwxyz
+* 1234567890
+* _ (sparingly)
+
+The reasoning for this is this will ensure the greatest compatibility of all data across all platforms across all tools, and help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
+
 ## Table of contents
 - [Important Terminology](#important-terminology)
   - [Levels/Maps](#terms-level-map)
@@ -796,12 +823,6 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 <a name="bp-var-bool-prefix"></a>
 ##### 3.2.1.3 Boolean `b` Prefix
 
-All booleans should be named in PascalCase but prefixed with a lowercase `b`.
-
-Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
-
-UE4 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
-
 <a name="3.2.1.4"></a>
 <a name="bp-var-bool-names"></a>
 ##### 3.2.1.4 Boolean Names
@@ -811,18 +832,18 @@ UE4 Blueprint editors know not to include the `b` in user-friendly displays of t
 
 All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
 
-Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
+Example: Use `Dead` and `Hostile` **not** `IsDead` and `IsHostile`.
 
-Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
+Try to not use verbs such as `Running`. Verbs tend to lead to complex states.
 
 <a name="3.2.1.4.2"></a>
 ###### 3.2.1.4.2 Complex States
 
 Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
 
-Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if a weapon can't be both reloading and equipping. Define an enumeration named `EWeaponState` and use a variable with this type named `WeaponState` instead. This makes it far easier to add new states to weapons.
+Example: When defining a weapon, do **not** use `Reloading` and `Equipping` if a weapon can't be both reloading and equipping. Define an enumeration named `EWeaponState` and use a variable with this type named `WeaponState` instead. This makes it far easier to add new states to weapons.
 
-Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
+Example: Do **not** use `Running` if you also need `Walking` or `Sprinting`. This should be defined as an enumeration with clearly defined state names.
 
 <a name="3.2.1.5"></a>
 <a name="bp-vars-naming-context"></a>
@@ -1221,6 +1242,12 @@ This does not mean every cast node should have its failure handled. In many case
 
 All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
 
+<a name="3.4.7"></a>
+<a name="bp-graphs-deprecated-nodes"></a>
+#### 3.4.7 Deprecated Graphs
+
+Graphs which no longer are in use, but is deemed important to backup, should be converted to a function within a category named "Deprecated".
+
 **[⬆ Back to Top](#table-of-contents)**
 
 
@@ -1239,20 +1266,23 @@ If Linter is reporting bad UVs and you can't seem to track it down, open the res
 
 <a name="4.1.1"></a>
 <a name="s-uvs-no-missing"></a>
-#### 4.1.1 All Meshes Must Have UVs
+#### 4.1.1 All Meshes Must Have UVs ??
 
+Q: In case of Lumen & Nanite UVs aren't required for shading - necessary for other areas?
 Pretty simple. All meshes, regardless how they are to be used, should not be missing UVs.
 
 <a name="4.1.2"></a>
 <a name="s-uvs-no-overlapping"></a>
-#### 4.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps
+#### 4.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps ??
 
+Q: In case of Lumen & Nanite UVs aren't required for shading - necessary for other areas?
 Pretty simple. All meshes, regardless how they are to be used, should have valid non-overlapping UVs.
 
 <a name="4.2"></a>
 <a name="s-lods"></a>
-### 4.2 LODs Should Be Set Up Correctly
+### 4.2 LODs Should Be Set Up Correctly ??
 
+Q: In case of Nanite, meshes don't require LODs - necessary for other areas?
 This is a subjective check on a per-project basis, but as a general rule any mesh that can be seen at varying distances should have proper LODs.
 
 <a name="4.3"></a>
@@ -1265,8 +1295,9 @@ It is up to the project whether to snap based on a power of 2 grid or on a base 
 
 <a name="4.4"></a>
 <a name="s-collision"></a>
-### 4.4 All Meshes Must Have Collision
+### 4.4 All Meshes Must Have Collision ??
 
+Q: In case we decide to build our own visual trace collision system, are mesh collisions required?
 Regardless of whether an asset is going to be used for collision in a level, all meshes should have proper collision defined. This helps the engine with things such as bounds calculations, occlusion, and lighting. Collision should also be well-formed to the asset.
 
 <a name="4.5"></a>
@@ -1318,7 +1349,7 @@ Please note: Linter is even more strict on this than the editor is currently, an
 
 <a name="6.2"></a>
 <a name="levels-lighting-should-be-built"></a>
-### 6.2 Lighting Should Be Built
+### 6.2 Lighting Should Be Built **N/A**
 
 It is normal during development for levels to occasionally not have lighting built. When doing a test/internal/shipping build or any build that is to be distributed however, lighting should always be built.
 
