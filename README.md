@@ -1,11 +1,3 @@
-# [Gamemakin](https://gamemak.in) UE4 Style Guide() {
-
-*A mostly reasonable approach to Unreal Engine 5*
-
-Heavily inspired by the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript).
-
-[![Analytics](https://ga-beacon.appspot.com/UA-80567399-1/repo?useReferrer)](#)
-
 ## Repo Notice
 
 This repo is now located at https://github.com/Allar/ue5-style-guide. The default branch of this repository has been renamed `main`.
