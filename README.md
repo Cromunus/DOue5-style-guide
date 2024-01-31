@@ -537,9 +537,11 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
         |-- 04_Tools
         |   |-- Source
         |   |-- WidgetTool_PrepModels
-        |   |-- Tool_Harbor_Generator
-        |   |-- Tool_Carpark_Generator
-        |   |-- Tool_Spline_Animator
+        |   |-- Tool_Harbor
+        |   |-- Tool_Carpark
+        |   |-- Tool_Spline_X
+        |   |-- Tool_Spline_Y
+        |   |-- Tool_SplineAnimator
         |-- 05_FX
         |   |-- VFX_Fire01
         |   |-- VFX_Dust01
