@@ -363,18 +363,18 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 <a name="1.2.5"></a>
 ### 1.2.5 Materials
 
-| Asset Type                    | Prefix     | Suffix     | Notes                            |
-| ----------------------------- | ---------- | ---------- | -------------------------------- |
-| Master Material               | MM_        |            |                                  |
-| Material                      | M_/MI_     |            |                                  |
-| Intelligent Material          | IM_/IMI_   |            |                                  |
-| Material (User Interface)     | UIM_/UIMI_ |            |                                  |
-| Material (Post Process)       | PP_        |            |                                  |
-| Material Function             | MF_        |            |                                  |
-| Material Parameter Collection | MPC_       |            |                                  |
-| Subsurface Profile            | SP_        |            |                                  |
-| Physical Materials            | PM_        |            |                                  |
-| Decal                         | M_, MI_    | _Decal     |                                  |
+| Asset Type                    | Prefix       | Suffix     | Notes                            |
+| ----------------------------- | ------------ | ---------- | -------------------------------- |
+| Master Material               | MM_/IMM_     |            |                                  |
+| Material                      | M_/MI_       |            |                                  |
+| Intelligent Material          | IM_/IMI_     |            |                                  |
+| Material (User Interface)     | UIM_/UIMI_   |            |                                  |
+| Material (Post Process)       | PP_          |            |                                  |
+| Material Function             | MF_          |            |                                  |
+| Material Parameter Collection | MPC_         |            |                                  |
+| Subsurface Profile            | SP_          |            |                                  |
+| Physical Materials            | PM_          |            |                                  |
+| Decal                         | M_, MI_, etc.| _Decal     |                                  |
 
 <a name="anc-textures"></a>
 <a name="1.2.6"></a>
@@ -491,6 +491,8 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 <a name="1.2.12"></a>
 ### 1.2.12 Effects
 
+_Niagara system conventions to be implemented_
+
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Particle System         | PS_        |            |                                  |
@@ -512,54 +514,57 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
 ### 2e1 Example Project Content Structure
 <pre>
 |-- Content
-    |-- <a href="#2.2">GenericShooter</a>
-        |-- Art
-        |   |-- Industrial
-        |   |   |-- Ambient
-        |   |   |-- Machinery
-        |   |   |-- Pipes
-        |   |-- Nature
-        |   |   |-- Ambient
-        |   |   |-- Foliage
-        |   |   |-- Rocks
-        |   |   |-- Trees
-        |   |-- Office
-        |-- Characters
-        |   |-- Bob
-        |   |-- Common
-        |   |   |-- <a href="#2.7">Animations</a>
-        |   |   |-- Audio
-        |   |-- Jack
-        |   |-- Steve
-        |   |-- <a href="#2.1.3">Zoe</a>
-        |-- <a href="#2.5">Core</a>
-        |   |-- Characters
-        |   |-- Engine
-        |   |-- <a href="#2.1.2">GameModes</a>
-        |   |-- Interactables
-        |   |-- Pickups
-        |   |-- Weapons
-        |-- Effects
-        |   |-- Electrical
-        |   |-- Fire
-        |   |-- Weather
-        |-- <a href="#2.4">Maps</a>
-        |   |-- Campaign1
-        |   |-- Campaign2
-        |-- <a href="#2.8">MaterialLibrary</a>
-        |   |-- Debug
-        |   |-- Metal
-        |   |-- Paint
-        |   |-- Utility
-        |   |-- Weathering
-        |-- Placeables
-        |   |-- Pickups
-        |-- Weapons
-            |-- Common
-            |-- Pistols
-            |   |-- DesertEagle
-            |   |-- RocketPistol
-            |-- Rifles
+    |-- <a href="#2.2">Project</a>
+        |-- 01_Prefabs
+        |   |-- PF_Vessel_EddaFreya
+        |   |-- PF_ROV_Supporter
+        |-- 02_Material_and_Resources
+        |   |-- 01MasterMaterials
+        |       |-- MM_UniqueAsset
+        |       |-- IMM_Glass
+        |   |-- MI_Basket01
+        |   |-- IMI_Glass_Green
+        |   |-- TT_Flooring_Oak01_C
+        |   |-- TT_Flooring_Oak01_N
+        |   |-- MF_TriPlanarAdvanced
+        |   |-- MPC_Environment
+        |-- 03_BP
+        |   |-- 01_Classes
+        |   |-- 02_Libs_and_Interfaces
+        |   |-- 03_Pawns
+        |   |-- 04_Input
+        |   |-- 99_Data
+        |-- 04_Tools
+        |   |-- Source
+        |   |-- WidgetTool_PrepModels
+        |   |-- Tool_Harbor_Generator
+        |   |-- Tool_Carpark_Generator
+        |   |-- Tool_Spline_Animator
+        |-- 05_FX
+        |   |-- VFX_Fire01
+        |   |-- VFX_Dust01
+        |   |-- SFX_Underwater
+        |   |-- PP_Underwater
+        |-- 06_Meshes
+        |   |-- SM_EddaFreya_PortsideGate
+        |   |-- SM_Basket01
+        |   |-- SKM_Human_Bob
+        |-- 07_UI
+        |   |-- Materials
+        |       |-- UIMM_LoadingWheel
+        |       |-- UIMI_LoadingWheel_Green
+        |       |-- UIM_Menu
+        |   |-- WBP_Button
+        |   |-- WBP_Scrollbox
+        |   |-- WBP_Scroller
+        |   |-- UI_Menu
+        |-- 08_Levels
+            |-- Scenario_Daylight
+            |-- Location_Alvheim
+        |-- 09_Animations
+        |   |-- Human
+        |       |-- SKEL_Human
+        |-- 99_Misc
 </pre>
 
 The reasons for this structure are listed in the following sub-sections.
@@ -668,6 +673,9 @@ Being able to tell someone to open a specific map without having to explain wher
 
 This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
 
+**Note: For DO projects we decided to use 08_Levels. Downside being no automatic including of maps, so make sure you include all maps the project needs under project settings.**
+**This decision is up for discussion.**
+
 <a name="2.5"></a>
 <a name="structure-core"></a>
 ### 2.5 Use A `Core` Folder For Critical Blueprints And Other Assets
@@ -677,6 +685,8 @@ Use `/Content/Project/Core` folder for assets that are absolutely fundamental to
 This creates a very clear "don't touch these" message for other team members. Non-engineers should have very little reason to enter the `Core` folder. Following good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.
 
 For example, if your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
+
+**For DO projects the folder "03_BP" serves the same purpose as "Core" in this example.**
 
 <a name="2.6"></a>
 <a name="structure-assettypes"></a>
@@ -697,6 +707,8 @@ Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static
 > This also extends the full path name of an asset for very little benefit. The `S_` prefix for a static mesh is only two characters, whereas `Meshes/` is seven characters.
 
 Not doing this also prevents the inevitability of someone putting a static mesh or a texture in a `Materials` folder.
+
+**Note: For DO Projects we decided to use 08_Meshes as a filtering method since PF (Prefabs) can be both blueprints and meshes. By keeping Prefabs and component meshes in seperate structures, we can filter out what animators actually want to touch.**
 
 <a name="2.7"></a>
 <a name="structure-large-sets"></a>
@@ -723,6 +735,8 @@ This way all 'global' materials have a place to live and are easily located.
 The `MaterialLibrary` doesn't have to consist of purely materials. Shared utility textures, material functions, and other things of this nature should be stored here as well within folders that designate their intended purpose. For example, generic noise textures should be located in `MaterialLibrary/Utility`.
 
 Any testing or debug materials should be within `MaterialLibrary/Debug`. This allows debug materials to be easily stripped from a project before shipping and makes it incredibly apparent if production assets are using them if reference errors are shown.
+
+**Note: For DO Projects _all_ materials (with exception PostProcess & UserInterface materials) live inside 02_Materials_and_Resources for ease of use**
 
 <a name="2.9"></a>
 <a name="structure-no-empty-folders"></a>
@@ -796,6 +810,8 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 <a name="3.2.1.3"></a>
 <a name="bp-var-bool-prefix"></a>
 ##### 3.2.1.3 Boolean `b` Prefix
+
+**Note: For DO Projects, we don't use the "b" prefix**
 
 <a name="3.2.1.4"></a>
 <a name="bp-var-bool-names"></a>
