@@ -10,8 +10,6 @@ For example, if you want to send someone to the first principle of this style gu
 
 ## Globally Enforced Opinions
 
-@TODO: Make this section 1 and update this document accordingly. Or maybe we don't?
-
 <a name="00.1"></a>
 ### Forbidden Characters
 
