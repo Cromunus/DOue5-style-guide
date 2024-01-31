@@ -24,7 +24,7 @@ In any `Identifier` of any kind, **never** use the following unless absolutely f
 * Backward slashes `\`
 * Symbols i.e. `#!@$%`
 * Any Unicode character
-* æøå (eg ser på deg Ørjan)
+* æøå (ser på deg Ørjan)
 
 Any `Identifier` should strive to only have the following characters when possible (the RegEx `[A-Za-z0-9_]+`)
 
